@@ -13,4 +13,4 @@ class Lecture(declarative_base()):
     place = Column(String)
     description = Column(String)
     max_people = Column(Integer)
-    users = relationship("User", back_populate="lectures")
+    user = relationship("User", back_populates="lectures")

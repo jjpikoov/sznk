@@ -1,6 +1,6 @@
 import unittest
 
-from domain.user import User
+from domain import User
 
 from repository.user_repository import UserRepository
 
