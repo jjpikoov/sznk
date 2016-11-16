@@ -1,4 +1,4 @@
-from repository.repository import Repository
+from repository import Repository
 
 
 class UserRepository(Repository):
