@@ -6,4 +6,4 @@ class Repository:
     def __init__(self):
         engine = create_engine('postgresql://admin:admin@localhost:5432/sznk_db')
         self.Session = sessionmaker()
-        self.Session.configure(engine=self.engine)
+        self.Session.configure(bind=engine)

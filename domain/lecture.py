@@ -1,10 +1,11 @@
-from sqlalchemy.ext.declarative.api import declarative_base
 from sqlalchemy.orm import relationship
-from sqlalchemy.sql.schema import Column
+from sqlalchemy.sql.schema import Column, ForeignKey
 from sqlalchemy.sql.sqltypes import Integer, String, Date
 
+from domain.model_base import ModelBase
 
-class Lecture(declarative_base()):
+
+class Lecture(ModelBase.Base):
     __tablename__ = 'lecture'
 
     id = Column(Integer, primary_key=True)
@@ -13,4 +14,5 @@ class Lecture(declarative_base()):
     place = Column(String)
     description = Column(String)
     max_people = Column(Integer)
+    user_id = Column(Integer, ForeignKey('user_.id'))
     user = relationship("User", back_populates="lectures")
