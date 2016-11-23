@@ -1,0 +1,5 @@
+POSTGRES_DB_NAME = "sznk_db"
+POSTGRES_USER = "admin"
+POSTGRES_PASSWORD = "admin"
+POSTGRES_PORT = "5433"
+POSTGRES_CONTAINER_NAME = "sznk_container"
