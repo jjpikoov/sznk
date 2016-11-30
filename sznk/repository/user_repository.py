@@ -1,4 +1,4 @@
-from repository import Repository
+from sznk.repository.repository import Repository
 
 
 class UserRepository:

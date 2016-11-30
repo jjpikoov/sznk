@@ -2,7 +2,7 @@ from sqlalchemy.orm import relationship
 from sqlalchemy.sql.schema import Column, ForeignKey
 from sqlalchemy.sql.sqltypes import Integer, String, Date
 
-from domain.model_base import ModelBase
+from sznk.domain.model_base import ModelBase
 
 
 class Lecture(ModelBase.Base):
@@ -15,4 +15,6 @@ class Lecture(ModelBase.Base):
     description = Column(String)
     max_people = Column(Integer)
     user_id = Column(Integer, ForeignKey('user_.id'))
+    lecturer_id = Column(Integer, ForeignKey('lecturer.id'))
     user = relationship("User", back_populates="lectures")
+    lecturer = relationship("Lecturer", back_populates="lectures")

@@ -1,8 +1,7 @@
 import unittest
 
-from domain import User
-
-from repository.user_repository import UserRepository
+from sznk.domain import User
+from sznk.repository.user_repository import UserRepository
 
 
 class UserRepositoryTest(unittest.TestCase):

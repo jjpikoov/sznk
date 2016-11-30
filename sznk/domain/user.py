@@ -2,7 +2,7 @@ from sqlalchemy.orm import relationship
 from sqlalchemy.sql.schema import Column
 from sqlalchemy.sql.sqltypes import String, Integer
 
-from domain.model_base import ModelBase
+from sznk.domain.model_base import ModelBase
 
 
 class User(ModelBase.Base):
@@ -13,6 +13,3 @@ class User(ModelBase.Base):
     surname = Column(String)
     mail = Column(String)
     lectures = relationship('Lecture', back_populates="user")
-
-
-
