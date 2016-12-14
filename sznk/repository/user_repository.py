@@ -1,5 +1,6 @@
-from sznk.repository.repository import Repository
-from sznk.domain import User
+import sznk
+from sznk.repository import Repository
+
 
 
 class UserRepository(object):
@@ -11,4 +12,4 @@ class UserRepository(object):
 
     def get_all_users(self):
         session = Repository.Session()
-        return session.query(User).all()
+        return session.query(sznk.domain.User).all()
