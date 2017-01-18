@@ -23,7 +23,7 @@ class Services:
                 " -e POSTGRES_USER={user}"
                 " -e POSTGRES_PASSWORD={passwd}"
                 " -p {port}:{port}"
-                " -d postgres:9.5.4").format(container_name=properties.POSTGRES_CONTAINER_NAME,
+                " -d postgres:9.5.4" + " ; sleep 3 ; docker cp ../sznk/repository/schema/schema.pgqsl sznk_container:schema.pgqsl ; sleep 3 ; docker exec -it sznk_container psql -U admin -d sznk_db -f schema.pgqsl" ).format(container_name=properties.POSTGRES_CONTAINER_NAME,
                                              db_name=properties.POSTGRES_DB_NAME,
                                              user=properties.POSTGRES_USER,
                                              passwd=properties.POSTGRES_PASSWORD,
