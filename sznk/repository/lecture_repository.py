@@ -4,6 +4,11 @@ from sznk.repository import Repository
 
 class LectureRepository(object):
 
+    def create_lecture(self, lecture):
+        session = Repository.Session()
+        session.add(lecture)
+        session.close()
+
     def persist_lecture(self, lecture):
         session = Repository.Session()
         session.add(lecture)
