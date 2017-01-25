@@ -7,7 +7,7 @@ class LectureRepository(object):
     def create_lecture(self, lecture):
         session = Repository.Session()
         session.add(lecture)
-        session.close()
+        session.commit()
 
     def persist_lecture(self, lecture):
         session = Repository.Session()
