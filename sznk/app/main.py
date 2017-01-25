@@ -8,27 +8,30 @@ from sznk.repository.repository import Repository
 
 app = Flask(__name__)
 
+
 @app.route("/")
 def show_main_page():
     return render_template('main.j2')
 
-@app.route("/add_lecture")
-def add_lecture():
-    return render_template("create_lecture.j2")
 
-@app.route("/lecture", methods=["POST"])
-def post_lecture():
-    lecture = Lecture(
-        title=request.form['title'],
-        place=request.form["place"],
-        description=request.form["description"],
-    )
-    LectureRepository().create_lecture(lecture)
+@app.route("/add_lecture", methods=["GET", "POST"])
+def add_lecture():
+    if request.method == "GET":
+        return render_template("create_lecture.j2")
+    elif request.method == "POST":
+        lecture = Lecture(
+            title=request.form['title'],
+            place=request.form["place"],
+            description=request.form["description"],
+        )
+        LectureRepository().create_lecture(lecture)
     return redirect(url_for("show_main_page"))
+
 
 @app.route('/resources/<path:path>')
 def access_static_resources(path):
     return send_from_directory('resources', path)
+
 
 if __name__ == "__main__":
     ModelBase.Base.metadata.create_all(Repository.engine)
