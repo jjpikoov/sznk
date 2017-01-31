@@ -1,0 +1,12 @@
+{% extends "main.j2" %}
+{% block page_content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12" style="margin-top: 100px">
+                  {% for lecture in lectures %}
+                        <p>{{ lecture.title }}</p><br>
+                  {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock page_content %}

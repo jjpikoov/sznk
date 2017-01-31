@@ -24,8 +24,14 @@ def add_lecture():
             place=request.form["place"],
             description=request.form["description"],
         )
-        LectureRepository().create_lecture(lecture)
-    return redirect(url_for("show_main_page"))
+        LectureRepository().persist_lecture(lecture)
+    return render_template("success.j2")
+
+
+@app.route("/all_lectures")
+def list_all_lectures():
+        lectures = LectureRepository().get_all_lectures()
+        return render_template("all_lectures.j2", lectures=lectures)
 
 
 @app.route('/resources/<path:path>')

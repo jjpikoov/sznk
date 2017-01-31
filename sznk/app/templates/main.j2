@@ -48,7 +48,7 @@
                         <a href="#">About</a>
                     </li>
                     <li>
-                        <a href="#">Services</a>
+                        <a href="/all_lectures">Lectures</a>
                     </li>
                     <li>
                         <a href="#">Contact</a>
@@ -61,14 +61,16 @@
     </nav>
 
     <!-- Page Content -->
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <!--<h1>Logo Nav by Start Bootstrap</h1>-->
-                <!--<p>Note: You may need to adjust some CSS based on the size of your logo. The default logo size is 150x50 pixels.</p>-->
+    {% block page_content %}
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <!--<h1>Logo Nav by Start Bootstrap</h1>-->
+                    <!--<p>Note: You may need to adjust some CSS based on the size of your logo. The default logo size is 150x50 pixels.</p>-->
+                </div>
             </div>
         </div>
-    </div>
+    {% endblock page_content %}
     <!-- /.container -->
 
     <!-- jQuery -->
